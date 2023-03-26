@@ -19,4 +19,5 @@ variable "ec2" {
     key_name = string,
     sg_name = string
   })
+  description = "List of postfix to the name of the instance (num of instances)"
 }
