@@ -1,0 +1,18 @@
+# Create the dynamic inventory
+plugin: amazon.aws.aws_ec2
+regions: 
+  - eu-central-1
+
+# filter results to only match ec2 intances with tag 'ansible=true'
+include_filters:
+- tag:ansible:
+  - 'true'
+
+# sets the inventory_hostname to instance public ipv4 address
+hostnames:
+  - ip-address
+
+# Create the 'ubuntu' host group for EC2 instances with the tag 'ansible=true'
+# It is not necessary in this example because only one group is present, but I added it as an example
+groups:
+  ubuntu: "'true' in tags.ansible"

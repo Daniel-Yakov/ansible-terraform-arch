@@ -1,0 +1,2 @@
+# Store the host group variables for the 'ubuntu' group
+ansible_user: ubuntu
