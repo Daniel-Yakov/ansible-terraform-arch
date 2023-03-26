@@ -46,6 +46,10 @@ module "ec2_instance" {
   # each EC2 instance in different subnet, round-robin style
   subnet_id              = module.vpc.public_subnets[index(tolist(toset(var.ec2.instances)), each.key) % local.public_subnets_length]
 
+  tags = {
+    ansible = true
+  }
+
   depends_on = [
     module.vpc,
     aws_security_group.ansible_instance_sg
